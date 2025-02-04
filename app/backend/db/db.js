@@ -7,6 +7,6 @@ AWS.config.update({
   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 });
 
-const dynamoDB = new AWS.dynamoDB.DocumentClient();
+const dynamoDB = new AWS.DynamoDB.DocumentClient();
 
 module.exports = dynamoDB;
