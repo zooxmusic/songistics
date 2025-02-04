@@ -1,0 +1,17 @@
+{
+    "song_topics": [
+      {
+        "id": "test-topic-1",
+        "type": "song_topic",
+        "name": "Love",
+        "description": "Songs about love and relationships."
+      },
+      {
+        "id": "test-topic-2",
+        "type": "song_topic",
+        "name": "Loss",
+        "description": "Songs about grief and moving on."
+      }
+    ]
+  }
+  
