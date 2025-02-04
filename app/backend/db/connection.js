@@ -1,7 +1,8 @@
 require("dotenv").config();
+
 const { DynamoDBClient } = require("@aws-sdk/client-dynamodb");
 
-const client = new DynamoDBClient({
+const connection = new DynamoDBClient({
   region: process.env.AWS_REGION || "us-east-1",
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -11,4 +12,4 @@ const client = new DynamoDBClient({
 
 console.log("DynamoDB client initialized");
 
-module.exports = client;
+module.exports = connection;

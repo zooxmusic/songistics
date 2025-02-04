@@ -1,6 +1,6 @@
 const { DynamoDBClient, CreateTableCommand } = require("@aws-sdk/client-dynamodb");
 
-const client = new DynamoDBClient({ region: "us-east-1" });
+const connection = new DynamoDBClient({ region: "us-east-1" });
 
 const createTable = async () => {
   const params = {
@@ -21,7 +21,7 @@ const createTable = async () => {
   };
 
   try {
-    await client.send(new CreateTableCommand(params));
+    await connection.send(new CreateTableCommand(params));
     console.log("Table 'songistics' created successfully!");
   } catch (err) {
     console.error("Error creating table:", err);

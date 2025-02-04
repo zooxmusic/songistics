@@ -1,9 +1,7 @@
 require("dotenv").config();
 const { DynamoDBClient, PutItemCommand, GetItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
-const client = require("../../app/backend/db/db");
-
-log(client.credentials + "*********************************************************")
+const connection = require('../../..app/backend/db/connection')
 
 const TABLE_NAME = "songistics";
 
@@ -19,7 +17,7 @@ test("Add a song topic to DynamoDB", async () => {
     }),
   };
 
-  await client.send(new PutItemCommand(params));
+  await connection.send(new PutItemCommand(params));
 
   // Fetch and verify the record
   const getParams = {
@@ -27,7 +25,7 @@ test("Add a song topic to DynamoDB", async () => {
     Key: marshall({ id: "test-topic-1" }),
   };
 
-  const { Item } = await client.send(new GetItemCommand(getParams));
+  const { Item } = await connnection.send(new GetItemCommand(getParams));
   expect(unmarshall(Item)).toEqual({
     id: "test-topic-1",
     type: "song_topic",

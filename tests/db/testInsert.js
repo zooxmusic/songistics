@@ -1,5 +1,5 @@
 const { DynamoDBClient, PutItemCommand } = require("@aws-sdk/client-dynamodb");
-const client = require("./db");
+const connection = require('../../..app/backend/db/connection')
 
 const addSongTopic = async () => {
   const params = {
@@ -13,7 +13,7 @@ const addSongTopic = async () => {
   };
 
   try {
-    await client.send(new PutItemCommand(params));
+    await connection.send(new PutItemCommand(params));
     console.log("Song topic added successfully!");
   } catch (err) {
     console.error("Error adding song topic:", err);

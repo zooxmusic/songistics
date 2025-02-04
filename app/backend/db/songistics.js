@@ -1,4 +1,4 @@
-const dynamoDB = require("./db")
+const dynamoDB = require("./connection")
 
 const addSong = async (song)  =>  {
     const params = {
