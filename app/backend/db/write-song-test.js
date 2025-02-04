@@ -1,4 +1,4 @@
-const {addSong, getSong } = require("./songistics")
+const {addSong, getSong } = require(songistics.js)
 
 const testSong = {id: "123", "title": "Test Song", category: "Rock" }
 

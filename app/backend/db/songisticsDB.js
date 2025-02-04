@@ -1,11 +1,11 @@
-import { put, get } from "./db";
+const dynamoDB = require("./db")
 
 const addSong = async (song)  =>  {
     const params = {
         TableName: 'songistics', 
         Item: song,
     };
-    await put(params).promise()
+    await dynamoDB.put(params).promise()
     console.log("*Song added", song);
 };
 
@@ -14,7 +14,8 @@ const getSong = async (id) => {
         TableName: "songistics",
         key: { id },
     };
-    const result = await get(params).promise();
+    const result = await dynamoDB.get(params).promise();
     console.log("Fetched songL", result.Item);
 };
-export default { addSong, getSong };
+
+module.exports = { addSong, getSong };
