@@ -3,6 +3,7 @@ const dynamoDB = require("./db")
 const addSong = async (song)  =>  {
     const params = {
         TableName: 'songistics', 
+        Key: "sonistics_id",
         Item: song,
     };
     await dynamoDB.put(params).promise()
