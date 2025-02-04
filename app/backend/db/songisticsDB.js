@@ -10,7 +10,7 @@ const addSong = async (song)  =>  {
 };
 
 const getSong = async (id) => {
-    params = {
+    const params = {
         TableName: "songistics",
         key: { id },
     };
