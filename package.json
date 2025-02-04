@@ -3,12 +3,14 @@
     "aws-sdk": "^2.1692.0",
     "knex": "^3.1.0",
     "pg": "^8.13.1"
-  },"scripts": {
+  },
+  "scripts": {
     "test": "jest"
-  },  
+  },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.741.0",
     "@aws-sdk/util-dynamodb": "^3.741.0",
+    "@types/jest": "^29.5.14",
     "dotenv": "^16.4.7",
     "jest": "^29.7.0"
   }
