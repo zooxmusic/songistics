@@ -1,13 +1,12 @@
 require("dotenv").config();
-const knex = require("knex");
-const config = require("./knexfile");
+const AWS  = require("aws-sdk")
 
-const db = knex(config.development);
+AWS.config.update({
+  region: process.env.AWS_REGION,
+  AWS_ACCESS_KEY_IDKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+});
 
-// Auto-run migrations on startup
-db.migrate
-  .latest()
-  .then(() => console.log("Database is up to date"))
-  .catch((err) => console.error("Migration failed", err));
+const dynamoDB = new AWS.dynamoDB.DocumentClient();
 
-module.exports = db;
+module.exports = dynamoDB;
