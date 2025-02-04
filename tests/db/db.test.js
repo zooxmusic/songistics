@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { DynamoDBClient, PutItemCommand, GetItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
-const testData = require("testData.json");
+const testData = require("../data/testData.json");
 
 const client = new DynamoDBClient({
   region: process.env.AWS_REGION,
