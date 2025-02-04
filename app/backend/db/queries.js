@@ -9,4 +9,3 @@ const getTopics = async () => {
     const result = await connection.send(new QueryCommand(params));
     console.log("Topics:", result.Items);
   };
-f  

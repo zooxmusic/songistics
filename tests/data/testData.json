@@ -1,17 +1,34 @@
 {
-    "song_topics": [
-      {
-        "id": "test-topic-1",
-        "type": "song_topic",
-        "name": "Love",
-        "description": "Songs about love and relationships."
-      },
-      {
-        "id": "test-topic-2",
-        "type": "song_topic",
-        "name": "Loss",
-        "description": "Songs about grief and moving on."
-      }
-    ]
-  }
-  
+  "song_topics": [
+    {
+      "id": "test-topic-1",
+      "type": "song_topic",
+      "name": "Love",
+      "description": "Songs about love and relationships."
+    },
+    {
+      "id": "test-topic-2",
+      "type": "song_topic",
+      "name": "Loss",
+      "description": "Songs about grief and moving on."
+    }
+  ],
+  "song_concepts": [
+    {
+      "id": "test-concept-1",
+      "type": "song_concept",
+      "topic_id": "test-topic-1",
+      "name": "Unrequited Love",
+      "description": "Love that is not returned."
+    }
+  ],
+  "song_titles": [
+    {
+      "id": "test-title-1",
+      "type": "song_title",
+      "topic_id": "test-topic-1",
+      "concept_id": "test-concept-1",
+      "title": "Love That Never Was"
+    }
+  ]
+}
