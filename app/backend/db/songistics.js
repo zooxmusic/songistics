@@ -12,7 +12,7 @@ const addSong = async (song)  =>  {
 const getSong = async (id) => {
     const params = {
         TableName: "songistics",
-        key: { id },
+        key: { sonistics_id },
     };
     const result = await dynamoDB.get(params).promise();
     console.log("Fetched songL", result.Item);
