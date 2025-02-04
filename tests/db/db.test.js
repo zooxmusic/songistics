@@ -1,14 +1,9 @@
 require("dotenv").config();
 const { DynamoDBClient, PutItemCommand, GetItemCommand } = require("@aws-sdk/client-dynamodb");
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
+const client = require("../../app/backend/db/db");
 
-const client = new DynamoDBClient({
-  region: process.env.AWS_REGION,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  },
-});
+log(client.credentials + "*********************************************************")
 
 const TABLE_NAME = "songistics";
 
@@ -26,7 +21,7 @@ test("Add a song topic to DynamoDB", async () => {
 
   await client.send(new PutItemCommand(params));
 
-  // Fetch and verify sthe record
+  // Fetch and verify the record
   const getParams = {
     TableName: TABLE_NAME,
     Key: marshall({ id: "test-topic-1" }),
