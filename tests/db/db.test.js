@@ -3,8 +3,8 @@ const { DynamoDBClient, PutItemCommand, GetItemCommand } = require("@aws-sdk/cli
 const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
 const testData = require("../data/testData.json");
 
-const client = new DynamoDBClient({
-  region: process.env.AWS_REGION,
+const connection = new DynamoDBClient({
+  region: process.env.AWS_REGION || "us-east-1",
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
@@ -20,7 +20,7 @@ const insertTestData = async () => {
       TableName: TABLE_NAME,
       Item: marshall(topic),
     };
-    await client.send(new PutItemCommand(params));
+    await connection.send(new PutItemCommand(params));
   }
 };
 
@@ -33,7 +33,7 @@ test("Insert and verify song topics in DynamoDB", async () => {
       TableName: TABLE_NAME,
       Key: marshall({ id: expectedTopic.id }),
     };
-    const { Item } = await client.send(new GetItemCommand(params));
+    const { Item } = await connection.send(new GetItemCommand(params));
 
     expect(unmarshall(Item)).toEqual(expectedTopic);
   }
